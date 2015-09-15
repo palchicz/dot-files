@@ -1,0 +1,16 @@
+### Configure READLINE ###
+
+# Search history up and down
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Ensure left and right continue to work correctly
+"\e[C": forward-char
+"\e[D": backward-char
+
+# Case-insensitive tab-completion
+set completion-ignore-case on
+
+
+# Don't ring alarm bell if there is more than one match
+set show-all-if-ambiguous
