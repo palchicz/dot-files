@@ -1,23 +1,44 @@
 #!/bin/bash
+# A simple script to symlink configuration files to the home directory.
+# Adopted from https://github.com/gotgenes/shell-configs/
 
 set -e
-set -u
 
-ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Add files that should not be symlinked to the array below.
+DO_NOT_SYMLINK=( '.git' '.gitignore' 'link-files.sh' 'README.md' )
 
-IGNORED_FILES=(.git .gitignore link-files.sh README.md)
-
-
+# The directory in which this script exists. See
+# http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Adapted from http://stackoverflow.com/a/8574392/38140
 in_array() { for e in "${@:2}"; do [[ "$e" = "$1" ]] && break; done; }
 
-for file in `ls -A $ROOT`; do
-    file_path="$ROOT/$file"
-    if ( in_array "$file" "${IGNORED_FILES[@]}" ); then
+ln_flags="-sn"
+
+while getopts "f" OPTION; do
+    case "$OPTION" in
+        f)
+            ln_flags="${ln_flags}f"
+            force=1
+        ;;
+        *)
+            exit 1
+        ;;
+    esac
+done
+
+for file in `ls -A $DIR`; do
+    path="$DIR/$file"
+    if ( in_array "$file" "${DO_NOT_SYMLINK[@]}" ); then
         echo "Ignoring $file"
     else
-        link_location="$HOME/$file"
-        echo "Creating symlink $link_location"
+        newpath="$HOME/$file"
+        if [[ -e $newpath ]] && [[ $force != 1 ]]; then
+            echo "Skipping $file because it exists already (maybe try using -f)"
+        else
+            echo "Creating symlink $newpath"
+            ln $ln_flags $DIR/$file $HOME
+        fi
     fi
 done
