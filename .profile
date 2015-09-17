@@ -10,3 +10,14 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
+
+## Virtualenv
+
+# set where virutal environments will live
+export WORKON_HOME=$HOME/.virtualenvs
+
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+else
+    echo "WARNING: Can't find virtualenvwrapper.sh"
+fi
