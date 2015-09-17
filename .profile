@@ -3,4 +3,10 @@
 # Environmental variables go here
 # http://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile?answertab=active#tab-top
 
+## Homebrew ##
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# For loading homebrew bash completion scripts
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi

@@ -4,12 +4,6 @@
 # run for non-login shells
 # Put alias, functions, and other bash specific things here
 
-## Homebrew ##
-
-# For loading homebrew bash completion scripts
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
 
 ## LiquidPrompt ##
 
