@@ -54,3 +54,6 @@ alias fgrep='fgrep --color=auto'              # show differences in colour
 
 # Comman typos
 alias cd..="cd .."
+
+# Make sure we always get vim
+alias vi='vim'
