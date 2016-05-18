@@ -5,7 +5,7 @@
 set -e
 
 # Add files that should not be symlinked to the array below.
-DO_NOT_SYMLINK=( '.git' '.gitignore' 'link-files.sh' 'README.md' )
+DO_NOT_SYMLINK=( '.git' '.gitignore' 'link-files.sh' 'README.md' 'vimrc')
 
 # The directory in which this script exists. See
 # http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
