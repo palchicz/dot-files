@@ -73,6 +73,9 @@ nmap k gk
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+" Allow backspacing over anything in insert mode
+set backspace=indent,eol,start
+
 " Use terminal like movements around vim cmd line
 cnoremap <C-a>  <Home>
 cnoremap <C-b>  <Left>
