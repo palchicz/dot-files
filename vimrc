@@ -2,6 +2,12 @@
 " => General
 """"""""""""""""""""""""""""""""""""""""""""""""
 
+" Hard mode.  Force me to use home row
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " Not compatible with vi
 set nocompatible
 
