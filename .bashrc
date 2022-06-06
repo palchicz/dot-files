@@ -40,7 +40,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # Some shortcuts for different directory listings
-alias ls='ls -G'			     # colorized output	
+alias ls='ls -G'			     # colorized output
 alias l='ls -hF'                             # human readable
 alias ll='l -l'                              # long list
 alias la='l -A'                              # all but . and ..
@@ -57,3 +57,9 @@ alias cd..="cd .."
 
 # Make sure we always get vim
 alias vi='vim'
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv virtualenv-init -)"

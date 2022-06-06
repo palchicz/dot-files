@@ -17,6 +17,9 @@ call pathogen#helptags() " generate helptags for everything in 'runtimepath'
 syntax on
 filetype plugin indent on
 
+" omnifunc
+set omnifunc=syntaxcomplete#Complete
+
 " Set the map leader
 let mapleader = "\\"
 
@@ -139,3 +142,8 @@ set wildignore+=*.so,*.swp,*.zip,*.pyc
 
 hi CtrlPLinePre ctermfg=bg ctermbg=fg
 nmap ; :CtrlPBuffer<CR>
+
+" Ledger
+let g:ledger_extra_options = '--pedantic --explicit'
+au FileType ledger noremap { ?^\d<CR>
+au FileType ledger noremap } /^\d<CR>

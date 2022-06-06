@@ -9,3 +9,11 @@ fi
 if [ -r ~/.bashrc ]; then
     source ~/.bashrc
 fi
+
+
+if command -v pipenv 1>/dev/null 2>&1; then
+  eval "$(pipenv --completion)"
+fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
